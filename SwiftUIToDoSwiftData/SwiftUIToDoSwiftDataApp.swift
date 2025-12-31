@@ -14,7 +14,6 @@ struct SwiftUIToDoSwiftDataApp: App {
         WindowGroup {
             ContentView()
         }
-        // Registramos nuestro modelo personalizado en el contenedor
         .modelContainer(for: TodoItem.self)
     }
 }
