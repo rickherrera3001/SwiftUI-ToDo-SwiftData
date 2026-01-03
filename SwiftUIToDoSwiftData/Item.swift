@@ -8,10 +8,13 @@
 import Foundation
 import SwiftData
 
+// MARK: - Model Definition
 @Model
 final class Item {
+    // MARK: - Properties
     var timestamp: Date
     
+    // MARK: - Initialization
     init(timestamp: Date) {
         self.timestamp = timestamp
     }
