@@ -11,23 +11,39 @@ import SwiftData
 struct ContentView: View {
     
     // MARK: - Properties
-        /// SwiftData Query to fetch items automatically
     @Query private var items: [TodoItem]
     
-    /// Environment context to manage data operations (Create, Update, Delete)
+    // MARK: - Environment
     @Environment(\.modelContext) var context
+    
+    // MARK: - State
+    @State private var showCreate = false
     
     // MARK: - Body
     var body: some View {
         NavigationStack {
             List {
+                // MARK: - Row Content
                 ForEach(items) { item in
-                    
-                    // MARK: - Row Content
                     Text(item.title)
                 }
             }
             .navigationTitle("My To-Do List")
+            // MARK: - Navigation Buttons
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showCreate.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+            // MARK: - Sheets
+            .sheet(isPresented: $showCreate) {
+                CreateTodoView()
+                    .presentationDetents([.medium])
+            }
         }
     }
 }
