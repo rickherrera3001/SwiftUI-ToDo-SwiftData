@@ -8,13 +8,17 @@
 import Foundation
 import SwiftData
 
+// MARK: - Model Definition
 @Model
 class TodoItem {
+    
+    // MARK: - Properties
     var title: String
     var timestamp: Date
     var isCritical: Bool
     var isCompleted: Bool
     
+    // MARK: - Initialization
     init(title: String = "",
          timestamp: Date = .now,
          isCritical: Bool = false,
