@@ -21,6 +21,8 @@ struct ContentView: View {
     // MARK: - State
     /// Controls the visibility of the creation sheet
     @State private var showCreate = false
+    /// Stores the item currently being edited
+    @State private var toDoToEdit: TodoItem?
     
     // MARK: - Body
     var body: some View {
@@ -45,8 +47,13 @@ struct ContentView: View {
                                 .foregroundStyle(.red)
                         }
                     }
+                    // MARK: - Interaction Section
+                    .contentShape(Rectangle())  
+                    .onTapGesture {
+                        toDoToEdit = item
+                    }
                 }
-                .onDelete(perform: deleteItems) 
+                .onDelete(perform: deleteItems)
             }
             .navigationTitle("My To-Do List")
             
@@ -64,6 +71,10 @@ struct ContentView: View {
             // MARK: - Sheets
             .sheet(isPresented: $showCreate) {
                 CreateTodoView()
+                    .presentationDetents([.medium])
+            }
+            .sheet(item: $toDoToEdit) { item in
+                UpdateTodoView(item: item)
                     .presentationDetents([.medium])
             }
         }
