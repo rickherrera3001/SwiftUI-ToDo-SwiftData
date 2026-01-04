@@ -46,6 +46,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                .onDelete(perform: deleteItems) 
             }
             .navigationTitle("My To-Do List")
             
@@ -65,6 +66,15 @@ struct ContentView: View {
                 CreateTodoView()
                     .presentationDetents([.medium])
             }
+        }
+    }
+    
+    // MARK: - Private Methods
+    /// Deletes selected items from the SwiftData context
+    private func deleteItems(offsets: IndexSet) {
+        for index in offsets {
+            let itemToDelete = items[index]
+            context.delete(itemToDelete)
         }
     }
 }
