@@ -11,12 +11,15 @@ import SwiftData
 struct ContentView: View {
     
     // MARK: - Properties
+    /// SwiftData Query to fetch items automatically
     @Query private var items: [TodoItem]
     
     // MARK: - Environment
+    /// Environment context to manage data operations
     @Environment(\.modelContext) var context
     
     // MARK: - State
+    /// Controls the visibility of the creation sheet
     @State private var showCreate = false
     
     // MARK: - Body
@@ -25,10 +28,27 @@ struct ContentView: View {
             List {
                 // MARK: - Row Content
                 ForEach(items) { item in
-                    Text(item.title)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(item.title)
+                                .font(.headline)
+                            
+                            Text(item.timestamp, format: .dateTime.day().month().year())
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        
+                        Spacer()
+                        
+                        if item.isCritical {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .foregroundStyle(.red)
+                        }
+                    }
                 }
             }
             .navigationTitle("My To-Do List")
+            
             // MARK: - Navigation Buttons
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -39,6 +59,7 @@ struct ContentView: View {
                     }
                 }
             }
+            
             // MARK: - Sheets
             .sheet(isPresented: $showCreate) {
                 CreateTodoView()
