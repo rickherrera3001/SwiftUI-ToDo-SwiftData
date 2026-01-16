@@ -12,7 +12,7 @@ struct ContentView: View {
     
     // MARK: - Properties
     /// SwiftData Query to fetch items automatically
-    @Query private var items: [TodoItem]
+    @Query(sort: \TodoItem.timestamp, order: .reverse) private var items: [TodoItem]
     
     // MARK: - Environment
     /// Environment context to manage data operations
