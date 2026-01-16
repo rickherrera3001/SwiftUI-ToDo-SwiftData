@@ -11,25 +11,31 @@ import SwiftData
 struct ContentView: View {
     
     // MARK: - Properties
-    /// SwiftData Query to fetch items automatically
     @Query(sort: \TodoItem.timestamp, order: .reverse) private var items: [TodoItem]
     
     // MARK: - Environment
-    /// Environment context to manage data operations
     @Environment(\.modelContext) var context
     
     // MARK: - State
-    /// Controls the visibility of the creation sheet
     @State private var showCreate = false
-    /// Stores the item currently being edited
+    @State private var searchText = ""
     @State private var toDoToEdit: TodoItem?
+    
+    // MARK: - Computed Properties
+    private var filteredItems: [TodoItem] {
+        if searchText.isEmpty {
+            return items
+        } else {
+            return items.filter { $0.title.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
     
     // MARK: - Body
     var body: some View {
         NavigationStack {
             List {
                 // MARK: - Row Content
-                ForEach(items) { item in
+                ForEach(filteredItems) { item in
                     HStack {
                         VStack(alignment: .leading) {
                             Text(item.title)
@@ -47,8 +53,7 @@ struct ContentView: View {
                                 .foregroundStyle(.red)
                         }
                     }
-                    // MARK: - Interaction Section
-                    .contentShape(Rectangle())  
+                    .contentShape(Rectangle())
                     .onTapGesture {
                         toDoToEdit = item
                     }
@@ -56,8 +61,6 @@ struct ContentView: View {
                 .onDelete(perform: deleteItems)
             }
             .navigationTitle("My To-Do List")
-            
-            // MARK: - Navigation Buttons
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -67,8 +70,6 @@ struct ContentView: View {
                     }
                 }
             }
-            
-            // MARK: - Sheets
             .sheet(isPresented: $showCreate) {
                 CreateTodoView()
                     .presentationDetents([.medium])
@@ -77,14 +78,14 @@ struct ContentView: View {
                 UpdateTodoView(item: item)
                     .presentationDetents([.medium])
             }
+            .searchable(text: $searchText, prompt: "Search tasks...")
         }
     }
     
     // MARK: - Private Methods
-    /// Deletes selected items from the SwiftData context
     private func deleteItems(offsets: IndexSet) {
         for index in offsets {
-            let itemToDelete = items[index]
+            let itemToDelete = filteredItems[index]
             context.delete(itemToDelete)
         }
     }
