@@ -59,6 +59,7 @@ struct ContentView: View {
                     }
                 }
                 .onDelete(perform: deleteItems)
+                .animation(.snappy, value: filteredItems)
             }
             .navigationTitle("My To-Do List")
             .toolbar {
