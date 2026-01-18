@@ -10,38 +10,35 @@ import SwiftData
 
 struct UpdateTodoView: View {
     
-    // MARK: - Environment
-    @Environment(\.dismiss) var dismiss
-    
     // MARK: - Properties
     @Bindable var item: TodoItem
+    @Environment(\.dismiss) private var dismiss
     
     // MARK: - Body
     var body: some View {
         NavigationStack {
             Form {
-                // MARK: - Input Section
-                TextField("Todo Title", text: $item.title)
-                DatePicker("Date", selection: $item.timestamp)
-                Toggle("Critical?", isOn: $item.isCritical)
+                // MARK: - Main Details Section
+                Section("Task Details") {
+                    TextField("Title", text: $item.title)
+                    
+                    Toggle("Is Critical?", isOn: $item.isCritical)
+                }
                 
-                // MARK: - Actions Section
-                Button("Done") {
-                    dismiss()
+                // MARK: - Date Section
+                Section("Schedule") {
+                    DatePicker("Date", selection: $item.timestamp)
                 }
             }
-            .navigationTitle("Update Todo")
+            .navigationTitle("Update Task")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }
+                    Button("Done") {
+                        dismiss()
+                    }
                 }
             }
         }
     }
-}
-
-// MARK: - Preview
-#Preview {
-    UpdateTodoView(item: TodoItem(title: "Sample Task"))
-        .modelContainer(for: TodoItem.self, inMemory: true)
 }
