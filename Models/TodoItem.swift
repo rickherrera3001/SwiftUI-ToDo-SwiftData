@@ -16,6 +16,7 @@ class TodoItem {
     var title: String
     var timestamp: Date
     var isCritical: Bool
+    var category: Category?
     var isCompleted: Bool
     
     // MARK: - Initialization

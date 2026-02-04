@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0215FAA2F330E330097B08E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0215FA92F330E330097B08E /* Category.swift */; };
 		D0737D6A2F1C992F00BBFE42 /* SwiftUIToDoSwiftDataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9477F2F1A100800C13CF6 /* SwiftUIToDoSwiftDataApp.swift */; };
 		D0F1DAFA2F1B5673002EC05B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D947832F1A102600C13CF6 /* ContentView.swift */; };
 		D0F1DAFB2F1B5673002EC05B /* CreateTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D947842F1A102600C13CF6 /* CreateTodoView.swift */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		D00270FE2EF9025700D57B27 /* SwiftUIToDoSwiftData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIToDoSwiftData.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0215FA92F330E330097B08E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		D0D9477E2F1A100800C13CF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0D9477F2F1A100800C13CF6 /* SwiftUIToDoSwiftDataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIToDoSwiftDataApp.swift; sourceTree = "<group>"; };
 		D0D947812F1A101A00C13CF6 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				D0D947812F1A101A00C13CF6 /* TodoItem.swift */,
+				D0215FA92F330E330097B08E /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				D0F1DAFB2F1B5673002EC05B /* CreateTodoView.swift in Sources */,
 				D0F1DAFC2F1B5673002EC05B /* UpdateTodoView.swift in Sources */,
 				D0F1DAFD2F1B5673002EC05B /* TodoItem.swift in Sources */,
+				D0215FAA2F330E330097B08E /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
