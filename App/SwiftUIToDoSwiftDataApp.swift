@@ -3,7 +3,7 @@ import SwiftData
 
 @main
 struct SwiftUIToDoSwiftDataApp: App {
-    
+
     // MARK: - Body Scene
     var body: some Scene {
         WindowGroup {
@@ -13,5 +13,3 @@ struct SwiftUIToDoSwiftDataApp: App {
         .modelContainer(for: [TodoItem.self, Category.self])
     }
 }
-EOFv
-
