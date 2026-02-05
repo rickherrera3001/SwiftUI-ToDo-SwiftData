@@ -1,4 +1,5 @@
-"PortableSSD /"
-DerivedData/
+**/DerivedData/
+PortableSSD\ /
 .DS_Store
-DerivedData/
+*.xcuserstate
+xcuserdata/

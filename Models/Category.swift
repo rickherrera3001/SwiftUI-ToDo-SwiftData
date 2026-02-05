@@ -11,11 +11,15 @@ import SwiftData
 
 @Model
 final class Category {
+    
+    // MARK: - Properties
     var title: String
     
+    // MARK: - Relationships
     @Relationship(deleteRule: .cascade, inverse: \TodoItem.category)
     var items: [TodoItem]?
     
+    // MARK: - Initialization
     init(title: String) {
         self.title = title
         self.items = []
