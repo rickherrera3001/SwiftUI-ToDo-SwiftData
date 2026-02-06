@@ -14,6 +14,7 @@
 		D0F1DAFC2F1B5673002EC05B /* UpdateTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D947852F1A102600C13CF6 /* UpdateTodoView.swift */; };
 		D0F1DAFD2F1B5673002EC05B /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D947812F1A101A00C13CF6 /* TodoItem.swift */; };
 		D0F1DB012F1B569D002EC05B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0D9477E2F1A100800C13CF6 /* Assets.xcassets */; };
+		D0FF420A2F35BD9C00A85BFA /* CreateCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF42092F35BD9B00A85BFA /* CreateCategoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		D0D947832F1A102600C13CF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D0D947842F1A102600C13CF6 /* CreateTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoView.swift; sourceTree = "<group>"; };
 		D0D947852F1A102600C13CF6 /* UpdateTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTodoView.swift; sourceTree = "<group>"; };
+		D0FF42092F35BD9B00A85BFA /* CreateCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCategoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				D0D947832F1A102600C13CF6 /* ContentView.swift */,
 				D0D947842F1A102600C13CF6 /* CreateTodoView.swift */,
 				D0D947852F1A102600C13CF6 /* UpdateTodoView.swift */,
+				D0FF42092F35BD9B00A85BFA /* CreateCategoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 			files = (
 				D0737D6A2F1C992F00BBFE42 /* SwiftUIToDoSwiftDataApp.swift in Sources */,
 				D0F1DAFA2F1B5673002EC05B /* ContentView.swift in Sources */,
+				D0FF420A2F35BD9C00A85BFA /* CreateCategoryView.swift in Sources */,
 				D0F1DAFB2F1B5673002EC05B /* CreateTodoView.swift in Sources */,
 				D0F1DAFC2F1B5673002EC05B /* UpdateTodoView.swift in Sources */,
 				D0F1DAFD2F1B5673002EC05B /* TodoItem.swift in Sources */,
